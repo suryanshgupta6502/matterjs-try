@@ -122,7 +122,7 @@
 
 
 
-
+<!-- 
 
 <!DOCTYPE html>
 <html>
@@ -178,6 +178,81 @@
   }
 
   animate();
+</script>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Matter.js + Div Physics</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #box {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: dodgerblue;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="box"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+<script>
+  const {
+    Engine,
+    Render,
+    Runner,
+    World,
+    Bodies,
+    Body,
+    Events
+  } = Matter;
+
+  // Create engine and world
+  const engine = Engine.create();
+  const world = engine.world;
+  engine.gravity.y = 1; // Earth-like gravity
+
+  // Create a box body
+  const boxBody = Bodies.rectangle(500, 100, 100, 100, {
+    restitution: 0.5
+  });
+
+  // Create a static ground
+  const ground = Bodies.rectangle(200, 800, 600, 20, {
+    isStatic: true
+  });
+
+  World.add(world, [boxBody, ground]);
+
+  // Run the engine
+  const runner = Runner.create();
+  Runner.run(runner, engine);
+
+  // DOM element
+  const boxDiv = document.getElementById("box");
+
+  // Animate DOM
+  function update() {
+    requestAnimationFrame(update);
+
+    // Update div position (center -> top-left)
+    boxDiv.style.left = (boxBody.position.x - 50) + "px";
+    boxDiv.style.top  = (boxBody.position.y - 50) + "px";
+    boxDiv.style.transform = `rotate(${boxBody.angle}rad)`;
+  }
+
+  update();
 </script>
 </body>
 </html>
