@@ -1,0 +1,69 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+#box {
+    /* display: inline-block; */
+    width: fit-content;
+    height: fit-content;
+    /* background-color: pink; */
+
+
+
+    
+    /* position: relative; */
+    /* position: absolute; */
+    /* top: 100; */
+    /* left: 100; */
+    /* width: 100px; */
+    /* height: 100px; */
+    /* background: dodgerblue; */
+    /* border-radius: 12px; */
+}
+
+.head {
+    background-color: blue;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 20px;
+}
+
+.body {
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    background-color: green;
+    width: 1vw;
+    height: 10vw;
+}
+
+.l-arm {
+
+
+
+    transform: translate(-50%, 0);
+    /* transform: rotateZ(45deg); */
+    background-color: green;
+    width: 1vw;
+    height: 5vw;
+}
+
+.svg {
+    max-width: 100px;
+}
+
+.svg-1 {
+
+    transform: translate(20px, 40px);
+
+    /* position: absolute;
+    top: 10%;
+    left: 10%; */
+}

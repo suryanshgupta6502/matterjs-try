@@ -184,55 +184,65 @@
 
 
 
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Matter.js + Div Physics</title>
-    <link rel="stylesheet" href="./src/index.css">
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-
-        /* #box {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: dodgerblue;
-            border-radius: 12px;
-        } */
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
 
-    <!-- <div id="box">
+    <div id="root"></div>
+
+    <div id="box">
         <div class="head"></div>
         <div class="l-arm"></div>
         <div class="r-arm"></div>
         <div class="l-leg"></div>
         <div class="r-leg"></div>
-    </div> -->
+    </div>
 
 
-    <svg id="box" width="214" height="340" viewBox="0 0 214 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="114" cy="57.5" rx="59" ry="57.5" fill="#D9D9D9" />
-        <line x1="114.5" y1="105" x2="114.5" y2="278" stroke="black" />
-        <line x1="114.264" y1="151.424" x2="0.264326" y2="222.424" stroke="black" />
-        <line x1="114.312" y1="150.609" x2="213.312" y2="229.609" stroke="black" />
-        <line x1="114.396" y1="278.305" x2="67.3961" y2="339.305" stroke="black" />
-        <line x1="114.424" y1="277.736" x2="152.424" y2="338.736" stroke="black" />
+    <!-- <svg id="scene" viewBox="0 0 300 300">
+        <path class="body" d="M114.5 105 L114.5 278 L115.5 278 L115.5 105 Z" fill="red" />
+    </svg>
+
+
+    <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10,30 
+               A 20,20 0,0,1 50,30
+               A 20,20 0,0,1 90,30
+               Q 90,60 50,90
+               Q 10,60 10,30 z" fill="red" class="test" />
     </svg>
 
 
 
+    <svg id="box" width="214" height="340" viewBox="0 0 214 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="114" cy="57.5" rx="59" ry="57.5" fill="#D9D9D9" />
+        <line x1="114.5" y1="105" x2="114.5" y2="278" stroke="red" class="body" />
 
-    <script type="module" src="./src/Physics.js"></script>
+        <path d="M114.5 105 L114.5 278 Z" fill="red" class="body" />
+
+
+
+        <line x1="114.264" y1="151.424" x2="0.264326" y2="222.424" stroke="black" class="l-arm" />
+        <line x1="114.312" y1="150.609" x2="213.312" y2="229.609" stroke="black" class="r-arm" />
+
+        <line x1="114.396" y1="278.305" x2="67.3961" y2="339.305" stroke="black" class="l-leg" />
+        <line x1="114.424" y1="277.736" x2="152.424" y2="338.736" stroke="black" class="r-leg" />
+    </svg> -->
+
+
+    <script type="module" src="./src/main.jsx"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.1/pathseg.min.js"></script>
+
+
+
+    <!-- <script type="module" src="./src/Physics.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script> -->
 
 </body>

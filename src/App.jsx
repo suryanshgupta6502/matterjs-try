@@ -6,9 +6,11 @@ import Scene from './Scene';
 
 export default function App() {
     return (
-        <Canvas>
-            <Scene/>
-            <OrbitControls/>
-        </Canvas>
+        <>
+        </>
+        // <Canvas>
+        //     <Scene/>
+        //     <OrbitControls/>
+        // </Canvas>
     )
 }
