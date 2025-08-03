@@ -188,71 +188,53 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Matter.js + Div Physics</title>
-  <style>
-    body { margin: 0; overflow: hidden; }
-    #box {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background: dodgerblue;
-      border-radius: 12px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Matter.js + Div Physics</title>
+    <link rel="stylesheet" href="./src/index.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: dodgerblue;
+            border-radius: 12px;
+        } */
+    </style>
 </head>
+
 <body>
 
-<div id="box"></div>
+    <!-- <div id="box">
+        <div class="head"></div>
+        <div class="l-arm"></div>
+        <div class="r-arm"></div>
+        <div class="l-leg"></div>
+        <div class="r-leg"></div>
+    </div> -->
 
-<script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
-<script>
-  const {
-    Engine,
-    Render,
-    Runner,
-    World,
-    Bodies,
-    Body,
-    Events
-  } = Matter;
 
-  // Create engine and world
-  const engine = Engine.create();
-  const world = engine.world;
-  engine.gravity.y = 1; // Earth-like gravity
+    <svg id="box" width="214" height="340" viewBox="0 0 214 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="114" cy="57.5" rx="59" ry="57.5" fill="#D9D9D9" />
+        <line x1="114.5" y1="105" x2="114.5" y2="278" stroke="black" />
+        <line x1="114.264" y1="151.424" x2="0.264326" y2="222.424" stroke="black" />
+        <line x1="114.312" y1="150.609" x2="213.312" y2="229.609" stroke="black" />
+        <line x1="114.396" y1="278.305" x2="67.3961" y2="339.305" stroke="black" />
+        <line x1="114.424" y1="277.736" x2="152.424" y2="338.736" stroke="black" />
+    </svg>
 
-  // Create a box body
-  const boxBody = Bodies.rectangle(500, 100, 100, 100, {
-    restitution: 0.5
-  });
 
-  // Create a static ground
-  const ground = Bodies.rectangle(200, 800, 600, 20, {
-    isStatic: true
-  });
 
-  World.add(world, [boxBody, ground]);
 
-  // Run the engine
-  const runner = Runner.create();
-  Runner.run(runner, engine);
+    <script type="module" src="./src/Physics.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script> -->
 
-  // DOM element
-  const boxDiv = document.getElementById("box");
-
-  // Animate DOM
-  function update() {
-    requestAnimationFrame(update);
-
-    // Update div position (center -> top-left)
-    boxDiv.style.left = (boxBody.position.x - 50) + "px";
-    boxDiv.style.top  = (boxBody.position.y - 50) + "px";
-    boxDiv.style.transform = `rotate(${boxBody.angle}rad)`;
-  }
-
-  update();
-</script>
 </body>
+
 </html>
