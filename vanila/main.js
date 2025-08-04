@@ -33,12 +33,13 @@ engine.gravity.y = 1; // Earth-like gravity
 
 
 // Create a static ground
-const ground = Bodies.rectangle(100, (window.innerHeight + (10 / 2)), 600, 10, {
-    isStatic: true
+const ground = Bodies.rectangle(300,1200, window.innerWidth, 10, {
+    isStatic: true, 
 });
 
 World.add(world, ground);
 
+console.log(window.innerHeight);
 
 
 // const path = document.querySelector(".svg"); // use id from SVG
@@ -48,13 +49,13 @@ World.add(world, ground);
 // const armBody = Bodies.fromVertices(200, 200, vertices);
 // World.add(world, armBody);
 
-const svg = document.querySelector(".svg")
-const bodies = []
+// const svg = document.querySelector(".svg")
+// const bodies = []
 
 
 const svghead = document.querySelector(".svg-1")
 // console.log(svghead);
-const svgheadbody = Bodies.fromVertices(10, 10,
+const svgheadbody = Bodies.fromVertices(0, 0,
     Svg.pathToVertices(svghead),
     { render: { fillStyle: "red", }, restitution: 1 }
 );
@@ -119,9 +120,9 @@ function update() {
 
     // })
 
-    // console.log(svgheadbody.position);
     svghead.style.transform = `translate(${svgheadbody.position.x}px, ${svgheadbody.position.y}px)`
-
+    // console.log(svgheadbody.position);
+    // console.log(svghead.style.transform);
 
     // console.log(document.querySelector(`.svg1`).style.left);
 
